@@ -1,0 +1,141 @@
+.header {
+    min-height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--dark) 0%, #1a1f36 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  
+  /* Add animated background effect */
+  .header::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.1;
+    animation: rotateBackground 20s linear infinite;
+  }
+  
+  .header-content {
+    max-width: 800px;
+    text-align: center;
+    z-index: 1;
+    padding: 2rem;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .animate-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--primary), #00d4ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease forwards;
+  }
+  
+  .animate-subtitle {
+    font-size: 1.75rem;
+    color: var(--gray-200);
+    margin: 0.75rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease forwards 0.2s;
+  }
+  
+  .animate-text {
+    font-size: 1.1rem;
+    color: var(--gray-300);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.8s ease forwards 0.4s;
+  }
+  
+  .header-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards 0.6s;
+  }
+  
+  .contact-button, 
+  .projects-button {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact-button {
+    background: var(--primary);
+    color: white;
+  }
+  
+  .projects-button {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+  
+  .contact-button:hover,
+  .projects-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 112, 243, 0.2);
+  }
+  
+  /* Add new animations */
+  @keyframes rotateBackground {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header {
+      min-height: 70vh;
+      padding: 2rem 1rem;
+    }
+  
+    .animate-title {
+      font-size: 2.5rem;
+    }
+  
+    .animate-subtitle {
+      font-size: 1.25rem;
+    }
+  
+    .header-buttons {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+  
+    .contact-button,
+    .projects-button {
+      width: 100%;
+    }
+  }
