@@ -63,37 +63,6 @@
     font-size: 0.875rem;
   }
   
-  .project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
-  .github-link,
-  .demo-link {
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: 500;
-  }
-  
-  .github-link {
-    background: var(--dark);
-    color: var(--white);
-  }
-  
-  .demo-link {
-    background: var(--primary);
-    color: var(--white);
-  }
-  
-  .github-link:hover,
-  .demo-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
