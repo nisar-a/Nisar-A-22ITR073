@@ -20,8 +20,8 @@ const educationData = [
     period: '2019 - 2020',
     score: '89.65%',
     achievements: [
-      'School First in Computer Science',
-      'Active participant in Tech events'
+      'Maths - Biology',
+      'Team Lead'
     ]
   },
   {
@@ -30,8 +30,8 @@ const educationData = [
     period: '2017 - 2018',
     score: '83%',
     achievements: [
-      'Merit Student',
-      'Science Club Member'
+      'Team Lead in house Level',
+      'Particpated in GOVT examination',
     ]
   }
 ];
