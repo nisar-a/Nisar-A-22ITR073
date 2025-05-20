@@ -58,8 +58,8 @@ function Education() {
                 <i className="fas fa-star"></i>
                 {edu.score} {edu.semester}
               </div>
-              <div className="achievements">
-                <h4>Achievements</h4>
+              <div className="Highlights">
+                <h4>Highlights</h4>
                 <ul>
                   {edu.achievements.map((achievement, idx) => (
                     <li key={idx}>{achievement}</li>

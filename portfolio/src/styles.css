@@ -519,3 +519,38 @@
       opacity: 0.2;
     }
   }
+
+  /* Add these theme variables at the top of your existing styles.css */
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #1a1f36;
+  --bg-secondary: #131725;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.05);
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Add this to your existing body styles */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update your existing section styles */
+section {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px var(--shadow);
+}
