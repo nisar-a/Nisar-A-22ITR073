@@ -8,43 +8,66 @@ function About() {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.5,
-        staggerChildren: 0.3
+        duration: 0.6,
+        staggerChildren: 0.2
       }
     }
   };
 
-  const itemVariants = {
+  // Update the animation variants
+  const imageVariants = {
+    hidden: { 
+        opacity: 0, 
+        scale: 0.95,
+        x: -20
+    },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 80,
+            damping: 12
+        }
+    }
+  };
+
+  const textVariants = {
     hidden: { 
       opacity: 0, 
-      y: 20 
+      y: 15 
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeOut"
+        type: "spring",
+        stiffness: 80,
+        damping: 10
       }
     }
   };
 
-  const imageVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8,
-      x: -50
-    },
+  const skillVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
       scale: 1,
-      x: 0,
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        staggerChildren: 0.1
       }
     }
   };
+
+  const skillTags = [
+    'JavaScript', 
+    'React', 
+    'Node.js', 
+    'Python', 
+    'AWS', 
+    'MongoDB'
+  ];
 
   return (
     <motion.section 
@@ -55,34 +78,28 @@ function About() {
       viewport={{ once: true, amount: 0.3 }}
       variants={containerVariants}
     >
-      <motion.div 
-        className="about-content"
-        variants={containerVariants}
-      >
+      <motion.div className="about-content">
         <motion.div 
           className="profile-image-container"
           variants={imageVariants}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <motion.div 
             className="profile-image"
-            whileHover={{ rotate: 5 }}
+            whileHover={{ scale: 1.05 }}
           >
             <img 
-              src="/assets/photo.png" 
+              src={process.env.PUBLIC_URL + '/assets/photo.png'} 
               alt="Nisar - Software Developer" 
-              loading="lazy"
             />
           </motion.div>
           <motion.div 
             className="profile-backdrop"
             animate={{ 
-              scale: [1, 1.05, 1],
-              rotate: [0, 5, 0]
+              scale: [1, 1.02, 1],
+              rotate: [0, 1, 0]
             }}
             transition={{
-              duration: 5,
+              duration: 4,
               ease: "easeInOut",
               repeat: Infinity
             }}
@@ -91,24 +108,42 @@ function About() {
 
         <motion.div 
           className="about-text"
-          variants={itemVariants}
+          variants={textVariants}
         >
-          <motion.h2
-            variants={itemVariants}
-          >
+          <motion.h2>
             About Me
           </motion.h2>
-          <motion.div 
-            className="bio"
-            variants={itemVariants}
-          >
-            <motion.p
-              variants={itemVariants}
-            >
+          <motion.div className="bio">
+            <p>
               A motivated individual with in-depth knowledge of programming languages 
               and development tools, seeking a position in a growth-oriented company 
               where I can contribute effectively while enhancing my own skills.
-            </motion.p>
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="skills-highlight"
+            variants={skillVariants}
+          >
+            {skillTags.map((skill, index) => (
+              <motion.span
+                key={skill}
+                className="skill-tag"
+                variants={textVariants}
+                whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                    transition: { 
+                        type: "spring", 
+                        stiffness: 400,
+                        damping: 10 
+                    }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {skill}
+              </motion.span>
+            ))}
           </motion.div>
         </motion.div>
       </motion.div>
