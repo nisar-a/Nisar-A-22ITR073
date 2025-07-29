@@ -8,7 +8,7 @@ function About() {
         <div className="profile-image-container">
           <div className="profile-image">
             <img 
-              src="/assets/photo.jpg" 
+              src="/assets/photo.png" 
               alt="Nisar - Software Developer" 
               loading="lazy"
             />
