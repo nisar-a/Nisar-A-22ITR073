@@ -1,5 +1,9 @@
 .experience-section {
     padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--card-bg, rgba(255, 255, 255, 0.02));
+    border-radius: 1.5rem;
     position: relative;
     overflow: hidden;
   }
@@ -17,19 +21,11 @@
   
   .experience-section h2 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 4rem;
     background: linear-gradient(135deg, var(--primary), #00d4ff);
     -webkit-background-clip: text;
-    background-clip: text;
-    background-clip: text;
-    background-clip: text;
-    background-clip: text;
-    background-clip: text;
-    background-clip: text;
-    background-clip: text;
-    background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
@@ -51,7 +47,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     transform: translateY(0);
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   
   .experience-card::before {
@@ -202,3 +197,14 @@
       width: fit-content;
     }
   }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .experience-card,
+    .tag,
+    .period,
+    .location {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}

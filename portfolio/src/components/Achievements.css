@@ -2,6 +2,7 @@
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    overflow: hidden;
   }
   
   .achievements-section h2 {
@@ -27,9 +28,6 @@
     position: relative;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    animation: fadeInUp 0.5s ease forwards;
   }
   
   .achievement-card:hover {
@@ -73,16 +71,7 @@
     color: var(--primary);
   }
   
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  /* Remove fadeInUp keyframes as we're using Framer Motion animations */
   
   /* Glass morphism effect for modern browsers */
   @supports (backdrop-filter: blur(10px)) {
@@ -104,5 +93,13 @@
   
     .achievement-card {
       padding: 1.5rem;
+    }
+  }
+  
+  /* Add styles for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .achievement-card {
+      animation: none !important;
+      transition: none !important;
     }
   }

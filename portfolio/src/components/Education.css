@@ -1,7 +1,10 @@
 .education-section {
     padding: 4rem 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1200px;  /* Updated to match About section */
+    margin: 2rem auto;  /* Added margin to match About section */
+    background: var(--card-bg, rgba(255, 255, 255, 0.02));
+    border-radius: 1.5rem;
+    overflow: hidden;   /* Added to match About section */
   }
   
   .education-section h2 {
@@ -38,17 +41,11 @@
     position: relative;
     padding-left: 3rem;
     margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideIn 0.5s ease forwards;
   }
   
-  .timeline-item:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  
+  .timeline-item:nth-child(2),
   .timeline-item:nth-child(3) {
-    animation-delay: 0.4s;
+    animation-delay: initial;
   }
   
   .timeline-dot {
@@ -67,7 +64,8 @@
     padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
   }
   
   .timeline-content:hover {
@@ -118,16 +116,9 @@
     color: var(--primary);
   }
   
-  @keyframes slideIn {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
   @media (max-width: 768px) {
     .education-section {
-      padding: 2rem 1rem;
+      padding: 4rem 2rem;  /* Updated to maintain consistency with About section */
     }
   
     .timeline::before {
@@ -140,5 +131,15 @@
   
     .timeline-dot {
       left: calc(1rem - 6px);
+    }
+  }
+  
+  /* Add styles for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-item,
+    .timeline-content,
+    .timeline-dot {
+        animation: none !important;
+        transition: none !important;
     }
   }

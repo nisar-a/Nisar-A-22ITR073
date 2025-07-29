@@ -39,6 +39,7 @@
   
   .category-icon {
     font-size: 2rem;
+    color: var(--primary, #0070f3);
     filter: drop-shadow(0 0 8px rgba(0, 112, 243, 0.2));
   }
   
@@ -86,7 +87,8 @@
   
   .skill-icon {
     font-size: 2rem;
-    transition: transform 0.3s ease;
+    color: var(--primary, #0070f3);
+    transition: all 0.3s ease;
   }
   
   .skill-name {
@@ -102,6 +104,7 @@
   
   .skill-card:hover .skill-icon {
     transform: scale(1.2);
+    color: #00d4ff;
   }
   
   /* Animation on load */
@@ -146,5 +149,29 @@
       font-size: 1.5rem;
     }
   }
-
   
+  /* Add icon-specific colors */
+.skill-card:hover .skill-icon svg[data-icon="react"] {
+  color: #61DAFB;
+}
+
+.skill-card:hover .skill-icon svg[data-icon="js"] {
+  color: #F7DF1E;
+}
+
+.skill-card:hover .skill-icon svg[data-icon="html5"] {
+  color: #E34F26;
+}
+
+.skill-card:hover .skill-icon svg[data-icon="python"] {
+  color: #3776AB;
+}
+
+.skill-card:hover .skill-icon svg[data-icon="node-js"] {
+  color: #339933;
+}
+
+.skill-card:hover .skill-icon svg[data-icon="aws"] {
+  color: #FF9900;
+}
+

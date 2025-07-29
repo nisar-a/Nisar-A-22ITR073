@@ -1,77 +1,65 @@
 import React from 'react';
 import './Contact.css';
 
+const contactItems = [
+  {
+    title: 'Email Me',
+    content: 'anisar2594@gmail.com',
+    icon: '/assets/email.png',
+    link: 'mailto:anisar2594@gmail.com'
+  },
+  {
+    title: 'Call Me',
+    content: '+91 9787795213',
+    icon: '/assets/phone.png',
+    link: 'tel:+919787795213'
+  },
+  {
+    title: 'Follow on GitHub',
+    content: 'nisar-a',
+    icon: '/assets/github.png',
+    link: 'https://github.com/nisar-a'
+  },
+  {
+    title: 'Connect on LinkedIn',
+    content: 'nisar-a',
+    icon: '/assets/linkedin.png',
+    link: 'https://www.linkedin.com/in/nisar-a-11b569259/'
+  }
+];
+
 function Contact() {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-header">
-        <h2>Let's Connect</h2>
-        <div className="header-line"></div>
+        <h2>Get In Touch</h2>
       </div>
       
-      <div className="contact-container">
-        <div className="contact-intro">
-          <p className="contact-text">
-            I'm always interested in hearing about new opportunities and exciting projects.
-            <span className="highlight">Let's create something amazing together!</span>
-          </p>
-        </div>
-        
-        <div className="contact-grid">
-          <a href="mailto:anisar2594@gmail.com" className="contact-item email">
-            <div className="contact-icon">
-              <img src="/assets/email.png" alt="Email" />
-            </div>
-            <div className="contact-info">
-              <h3>Email Me</h3>
-              <span>anisar2594@gmail.com</span>
-            </div>
-            <div className="hover-effect"></div>
-          </a>
-          
-          <a href="tel:+919787795213" className="contact-item phone">
-            <div className="contact-icon">
-              <img src="/assets/phone.png" alt="Phone" />
-            </div>
-            <div className="contact-info">
-              <h3>Call Me</h3>
-              <span>+91 9787795213</span>
-            </div>
-            <div className="hover-effect"></div>
-          </a>
-
+      <div className="contact-grid">
+        {contactItems.map((item, index) => (
           <a 
-            href="https://github.com/nisar-a" 
+            key={index} 
+            href={item.link} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="contact-item github"
+            className="contact-item"
           >
             <div className="contact-icon">
-              <img src="/assets/github.png" alt="GitHub" />
+              <img 
+                src={item.icon} 
+                alt={item.title}
+                width="24"
+                height="24"
+                loading="lazy"
+              />
             </div>
             <div className="contact-info">
-              <h3>Follow on GitHub</h3>
-              <span>nisar-a</span>
+              <h3>{item.title}</h3>
+              <span>{item.content}</span>
             </div>
             <div className="hover-effect"></div>
           </a>
-
-          <a 
-            href="https://www.linkedin.com/in/nisar-a-11b569259/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="contact-item linkedin"
-          >
-            <div className="contact-icon">
-              <img src="/assets/linkedin.png" alt="LinkedIn" />
-            </div>
-            <div className="contact-info">
-              <h3>Connect on LinkedIn</h3>
-              <span>nisar-a</span>
-            </div>
-            <div className="hover-effect"></div>
-          </a>
-        </div>
+        ))}
       </div>
     </section>
   );

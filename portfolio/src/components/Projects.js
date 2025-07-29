@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Projects.css';
 
 const projects = [
@@ -29,29 +30,101 @@ const projects = [
 ];
 
 function Projects() {
-  return (
-    <section id="projects" className="projects-section">
-      <h2>Projects</h2>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
-      <div className="projects-grid">
+  const cardVariants = {
+    hidden: { 
+      opacity: 0,
+      y: 30,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    },
+    hover: {
+      y: -8,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  };
+
+  return (
+    <motion.section 
+      id="projects" 
+      className="projects-section"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h2
+        variants={cardVariants}
+      >
+        Projects
+      </motion.h2>
+
+      <motion.div 
+        className="projects-grid"
+        variants={containerVariants}
+      >
         {projects.map((project, index) => (
-          <div key={index} className="project-card">
-            <div className="project-image">
+          <motion.div 
+            key={index} 
+            className="project-card"
+            variants={cardVariants}
+            whileHover="hover"
+          >
+            <motion.div 
+              className="project-image"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               <img src={project.image} alt={project.title} loading="lazy" />
-            </div>
+            </motion.div>
             <div className="project-content">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
               <div className="tech-stack">
                 {project.tech.map((tech, index) => (
-                  <span key={index} className="tech-tag">{tech}</span>
+                  <motion.span 
+                    key={index} 
+                    className="tech-tag"
+                    whileHover={{ 
+                      scale: 1.1,
+                      y: -2 
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 400,
+                      damping: 10
+                    }}
+                  >
+                    {tech}
+                  </motion.span>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

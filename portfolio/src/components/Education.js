@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './Education.css';
 
 const educationData = [
@@ -37,14 +38,74 @@ const educationData = [
 ];
 
 function Education() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: -50,
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
+
   return (
-    <section id="education" className="education-section">
-      <h2>Education Journey</h2>
-      <div className="timeline">
+    <motion.section 
+      id="education" 
+      className="education-section"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h2
+        variants={itemVariants}
+      >
+        Education Journey
+      </motion.h2>
+      <motion.div 
+        className="timeline"
+        variants={containerVariants}
+      >
         {educationData.map((edu, index) => (
-          <div key={index} className="timeline-item">
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
+          <motion.div 
+            key={index} 
+            className="timeline-item"
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 10
+            }}
+          >
+            <motion.div 
+              className="timeline-dot"
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            />
+            <motion.div 
+              className="timeline-content"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
               <h3>{edu.degree}</h3>
               <div className="institution">
                 <i className="fas fa-university"></i>
@@ -58,19 +119,32 @@ function Education() {
                 <i className="fas fa-star"></i>
                 {edu.score} {edu.semester}
               </div>
-              <div className="Highlights">
+              <motion.div 
+                className="Highlights"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
                 <h4>Highlights</h4>
                 <ul>
                   {edu.achievements.map((achievement, idx) => (
-                    <li key={idx}>{achievement}</li>
+                    <motion.li 
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + idx * 0.1 }}
+                      whileHover={{ x: 10 }}
+                    >
+                      {achievement}
+                    </motion.li>
                   ))}
                 </ul>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

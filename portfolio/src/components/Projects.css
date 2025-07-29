@@ -1,5 +1,21 @@
 .projects-section {
     padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: var(--card-bg, rgba(255, 255, 255, 0.02));
+    border-radius: 1.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .projects-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, var(--primary), #00d4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .projects-grid {
@@ -13,12 +29,9 @@
     background: var(--card-bg);
     border-radius: 1rem;
     overflow: hidden;
-    transition: transform 0.3s ease;
     border: 1px solid var(--card-border);
-  }
-  
-  .project-card:hover {
-    transform: translateY(-8px);
+    backdrop-filter: blur(10px);
+    /* Remove transition as Framer Motion will handle it */
   }
   
   .project-image {
@@ -31,11 +44,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .project-card:hover .project-image img {
-    transform: scale(1.1);
+    will-change: transform;
   }
   
   .project-content {
@@ -66,5 +75,16 @@
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
+      padding: 1rem;
     }
   }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-image,
+    .tech-tag {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
