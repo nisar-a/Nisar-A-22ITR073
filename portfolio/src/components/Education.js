@@ -6,19 +6,20 @@ const educationData = [
   {
     degree: 'B.Tech in Information Technology',
     institution: 'Kongu Engineering College',
-    period: '2020 - 2024',
-    score: 'CGPA: 7.34',
-    semester: '(till 5th semester)',
+    period: '2022 - 2026',
+    score: 'CGPA: 7.38',
+    semester: '(till 6th semester)',
     achievements: [
-      'Technical Team Lead',
+      'Team Lead',
       'Web Development Club Member',
-      'Participated in 5+ Hackathons'
+      'Participated in 5+ Hackathons',
+      'Add.Secretary of IT Association '
     ]
   },
   {
     degree: 'Higher Secondary (HSC)',
     institution: 'New Power Mat.Hr.Sec.School',
-    period: '2019 - 2020',
+    period: '2021 - 2022',
     score: '89.65%',
     achievements: [
       'Maths - Biology',
@@ -28,11 +29,10 @@ const educationData = [
   {
     degree: 'Secondary School (SSLC)',
     institution: 'New Power Mat.Hr.Sec.School',
-    period: '2017 - 2018',
+    period: '2019 - 2020',
     score: '83%',
     achievements: [
       'Team Lead in house Level',
-      'Particpated in GOVT examination',
     ]
   }
 ];
