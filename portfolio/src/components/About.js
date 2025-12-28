@@ -88,7 +88,7 @@ function About() {
             whileHover={{ scale: 1.05 }}
           >
             <img 
-              src={process.env.PUBLIC_URL + '/assets/NISAR A_PHOTO.JPG'} 
+              src={process.env.PUBLIC_URL + '/assets/photo.png'} 
               alt="Nisar - Software Developer" 
             />
           </motion.div>
