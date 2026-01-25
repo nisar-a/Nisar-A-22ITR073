@@ -7,8 +7,8 @@ const educationData = [
     degree: 'B.Tech in Information Technology',
     institution: 'Kongu Engineering College',
     period: '2022 - 2026',
-    score: 'CGPA: 7.38',
-    semester: '(till 6th semester)',
+    score: 'CGPA: 7.49',
+    semester: '(till 7th semester)',
     achievements: [
       'Team Lead',
       'Web Development Club Member',
