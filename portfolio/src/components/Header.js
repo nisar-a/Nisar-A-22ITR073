@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from "react";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './Header.css';
 
